@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, useParams } from 'react-router-dom';
-import Layout from './components/Layout';
-import AdUnit from './components/AdUnit';
-import { Article } from './types';
-import { generateArticle, getSuggestedTopics } from './services/geminiService';
+import Layout from './components/Layout.tsx';
+import AdUnit from './components/AdUnit.tsx';
+import { Article } from './types.ts';
+import { generateArticle, getSuggestedTopics } from './services/geminiService.ts';
 
 // --- Home Component ---
 const HomePage: React.FC = () => {
