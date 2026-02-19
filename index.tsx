@@ -1,17 +1,16 @@
-
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 
 const container = document.getElementById('root');
 
-if (container) {
-  const root = createRoot(container);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-} else {
-  console.error("Root element not found. Check index.html for <div id='root'></div>");
+if (!container) {
+  throw new Error("Target container 'root' not found in index.html");
 }
+
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

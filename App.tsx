@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, useParams } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -32,19 +31,19 @@ const HomePage: React.FC = () => {
       <section className="mb-12">
         <div className="relative rounded-3xl overflow-hidden bg-slate-900 h-[400px] flex items-center">
           <img 
-            src="https://picsum.photos/seed/evmain/1200/600" 
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            alt="Hero"
+            src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=1200" 
+            className="absolute inset-0 w-full h-full object-cover opacity-60"
+            alt="Evec.in Electric Mobility"
           />
           <div className="relative z-10 p-8 md:p-16 max-w-2xl">
             <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block uppercase tracking-wider">
-              Featured Insight
+              Evec.in Exclusive
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
-              The Evolution of Electronic Mobility is Here.
+              The Evolution of Mobility is Here.
             </h1>
             <p className="text-slate-200 text-lg mb-8">
-              Discover the latest breakthroughs in sustainable transport technology and infrastructure.
+              Discover the latest breakthroughs in sustainable transport technology and infrastructure at Evec.in.
             </p>
             <button className="bg-white text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-slate-100 transition-colors">
               Read Latest Stories
@@ -58,7 +57,7 @@ const HomePage: React.FC = () => {
         <div className="lg:col-span-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl font-bold">Trending Now</h2>
-            <Link to="/latest" className="text-emerald-600 font-semibold text-sm hover:underline">View All</Link>
+            <Link to="/" className="text-emerald-600 font-semibold text-sm hover:underline">View All</Link>
           </div>
 
           <div className="space-y-8">
@@ -82,25 +81,25 @@ const HomePage: React.FC = () => {
 
         {/* Sidebar */}
         <aside className="lg:col-span-4 space-y-8">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <h3 className="text-lg font-bold mb-4">Newsletter</h3>
-            <p className="text-slate-500 text-sm mb-4">Join 50,000+ readers getting daily EV insights.</p>
+            <p className="text-slate-500 text-sm mb-4">Join 50,000+ readers getting daily Evec.in insights.</p>
             <input 
               type="email" 
               placeholder="Your email address" 
-              className="w-full bg-slate-100 border-none rounded-lg px-4 py-3 text-sm mb-3 focus:ring-2 focus:ring-emerald-500"
+              className="w-full bg-slate-100 border-none rounded-lg px-4 py-3 text-sm mb-3 focus:ring-2 focus:ring-emerald-500 outline-none"
             />
             <button className="w-full bg-emerald-600 text-white py-3 rounded-lg text-sm font-bold hover:bg-emerald-700 transition-colors">
-              Join the Community
+              Join Evec.in
             </button>
           </div>
 
           <AdUnit slot="sidebar-top" className="h-[250px]" />
 
-          <div className="bg-white p-6 rounded-2xl border border-slate-200">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <h3 className="text-lg font-bold mb-4">Popular Tags</h3>
             <div className="flex flex-wrap gap-2">
-              {['Tesla', 'Solid State', 'Infrastructure', 'Solar', 'Battery', 'Efficiency', 'Range'].map(tag => (
+              {['Tesla', 'Infrastructure', 'Solar', 'Battery', 'Range'].map(tag => (
                 <span key={tag} className="px-3 py-1 bg-slate-100 rounded-full text-xs font-medium text-slate-600 cursor-pointer hover:bg-emerald-50 hover:text-emerald-700 transition-colors">
                   #{tag}
                 </span>
@@ -139,23 +138,23 @@ const ArticlePage: React.FC = () => {
   if (loading) return (
     <div className="max-w-3xl mx-auto px-4 py-20 text-center">
       <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-emerald-600 border-t-transparent mb-4"></div>
-      <p className="text-slate-500 font-medium">Generating intelligent mobility insights...</p>
+      <p className="text-slate-500 font-medium tracking-tight">Evec.in is preparing your mobility report...</p>
     </div>
   );
 
-  if (!article) return <div className="p-20 text-center">Error loading article.</div>;
+  if (!article) return <div className="p-20 text-center">Error loading article on Evec.in</div>;
 
   return (
     <article className="max-w-4xl mx-auto px-4 py-12">
-      <header className="mb-8">
-        <Link to="/" className="text-emerald-600 text-sm font-bold mb-4 inline-block hover:underline">← Back to home</Link>
+      <header className="mb-8 text-center md:text-left">
+        <Link to="/" className="text-emerald-600 text-sm font-bold mb-6 inline-block hover:underline">← Home</Link>
         <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4">{article.title}</h1>
-        <div className="flex items-center space-x-4 text-sm text-slate-500">
+        <div className="flex items-center justify-center md:justify-start space-x-4 text-sm text-slate-500 font-medium">
           <span>{article.author}</span>
-          <span>•</span>
+          <span className="text-slate-300">|</span>
           <span>{article.date}</span>
-          <span>•</span>
-          <span className="text-emerald-600 font-bold uppercase">{article.category}</span>
+          <span className="text-slate-300">|</span>
+          <span className="text-emerald-600 font-bold uppercase tracking-widest text-[10px]">{article.category}</span>
         </div>
       </header>
 
@@ -164,7 +163,7 @@ const ArticlePage: React.FC = () => {
       <img 
         src={article.imageUrl} 
         alt={article.title}
-        className="w-full h-[450px] object-cover rounded-3xl mb-12 shadow-xl"
+        className="w-full h-[450px] object-cover rounded-3xl mb-12 shadow-2xl"
       />
 
       <div className="prose prose-lg prose-slate max-w-none">
@@ -176,9 +175,9 @@ const ArticlePage: React.FC = () => {
       <AdUnit slot="article-bottom" format="rectangle" className="mt-12" />
       
       <div className="mt-12 pt-12 border-t border-slate-200">
-        <h3 className="text-2xl font-bold mb-8">Continue Reading</h3>
+        <h3 className="text-2xl font-bold mb-8">Related at Evec.in</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-           <ArticlePreview topic="The Impact of EV Adoption on Power Grids" mini />
+           <ArticlePreview topic="Impact of EV Adoption on Power Grids" mini />
            <ArticlePreview topic="Best EV Chargers for Home Use 2025" mini />
         </div>
       </div>
@@ -193,16 +192,15 @@ const ArticlePreview: React.FC<{ topic: string; mini?: boolean }> = ({ topic, mi
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // For previews, we just use the topic as title and a placeholder image
     const timer = setTimeout(() => {
       setData({
         title: topic,
-        summary: `Essential guide and latest updates regarding ${topic} in the current automotive landscape.`,
+        summary: `Essential guide and latest updates regarding ${topic} in the current mobility landscape.`,
         date: 'Today',
         imageUrl: `https://picsum.photos/seed/${topic}/400/300`
       });
       setLoading(false);
-    }, 500);
+    }, 100);
     return () => clearTimeout(timer);
   }, [topic]);
 
@@ -227,15 +225,13 @@ const ArticlePreview: React.FC<{ topic: string; mini?: boolean }> = ({ topic, mi
         />
       </div>
       <div className="flex flex-col justify-center">
-        <span className="text-emerald-600 text-xs font-bold uppercase mb-2">Automotive</span>
+        <span className="text-emerald-600 text-[10px] font-black uppercase tracking-widest mb-2">Insight</span>
         <h3 className="text-xl font-bold mb-3 group-hover:text-emerald-600 transition-colors">{topic}</h3>
         <p className="text-slate-500 text-sm line-clamp-2 mb-4">
           {data.summary}
         </p>
-        <div className="mt-auto flex items-center text-xs text-slate-400 font-medium">
-          <span>Read More</span>
-          <span className="mx-2">•</span>
-          <span>5 min read</span>
+        <div className="mt-auto flex items-center text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+          <span>Read Full Story</span>
         </div>
       </div>
     </Link>
@@ -251,7 +247,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/article/:topic" element={<ArticlePage />} />
-          <Route path="*" element={<div className="p-20 text-center">Page not found</div>} />
+          <Route path="*" element={<div className="p-20 text-center">404: Route Not Found on Evec.in</div>} />
         </Routes>
       </Layout>
     </HashRouter>
